@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:ital@1&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-style: italic;
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 25px;
+            color: white;
+            background-color: black;
+        }
+        
+        .box {
+            margin-left: 30%;
+            float: left;
+            float: left;
+        }
+        
+        .container {
+            background-color: yellow;
+            padding: 20px;
+            margin: 20px;
+            width: 600px;
+            border-radius: 50px;
+        }
+        
+        .button-30 {
+            align-items: center;
+            appearance: none;
+            background-color: #FCFCFD;
+            border-radius: 4px;
+            border-width: 0;
+            box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #36395A;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "JetBrains Mono", monospace;
+            height: 48px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s, transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow, transform;
+            font-size: 18px;
+            margin-bottom: 100px;
+        }
+        
+        .button-30:focus {
+            box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+        }
+        
+        .button-30:hover {
+            box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+        
+        .button-30:active {
+            box-shadow: #D6D6E7 0 3px 7px inset;
+            transform: translateY(2px);
+        }
+        
+        .eleven {
+            font-size: 50px;
+            font-family: 'Fredoka One', cursive;
+            color: black;
+        }
+        
+        .button {
+            margin-bottom: 200px;
+        }
+        
+        .textbox1 {
+            border: 1px solid #848484;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+            outline: 0;
+            height: 40px;
+            width: 300px;
+            margin-top: 50px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        .textbox {
+            border: 1px solid #848484;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+            outline: 0;
+            height: 40px;
+            width: 300px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        .topimage {
+            width: 600px;
+            height: 300px;
+            border-radius: 30px;
+            margin-top: 40px;
+            margin-bottom: 0px;
+        }
+        
+        .topic {
+            font-family: 'Roboto', sans-serif;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .carsphoto {
+            margin-left: 5px;
+            margin-right: 10px;
+            border-radius: 10px;
+            width: 60px;
+            height: 60px;
+        }
+        
+        li {
+            position: relative;
+            margin-bottom: 5px;
+        }
+        
+        .car_points {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .border {
+            border: 2px solid white;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="border">
+        <center>
+            <img src="static\image.jpg" alt="Cars" class="topimage">
+            <div class="container">
+                <h1 class="eleven"> USED CARS PRICE PREDICTION </h1><br></div>
+            <h3 class="topic">
+                Enter the following attributes of the car as per the given keyword and allow the system to predict the price of the used cars
+            </h3>
+            <div class="box"></div>
+            <form method="POST" , action="{{url_for('home')}}">
+
+                Location : <input type="text" , name='Location' , placeholder="Enter Location" class="textbox1"> <br>
+                <ul>
+                    <li>o Ahmedabad -> 0</li>
+                    <li>o Bangalore -> 1</li>
+                    <li>o Chennai -> 2</li>
+                    <li>o Coinbatore -> 3</li>
+                    <li>o Delhi -> 4</li>
+                    <li>o Hyderabad -> 5</li>
+                    <li>o Jaipur -> 6</li>
+                    <li>o Kochi -> 7</li>
+                    <li>o Kolkata -> 8</li>
+                    <li>o Mumbai -> 9</li>
+                    <li>o Pune -> 10</li>
+                </ul><br> Year : <input type="text" , name='Year' , placeholder="Enter Year" class="textbox"> <br><br> Kilometers Driven : <input type="text" , name='Kilometers_Driven' , placeholder="Enter Kilometers Driven" class="textbox"> <br><br> Fuel
+                Type : <input type="text" , name='Fuel_Type' , placeholder="Enter Fuel Type" class="textbox"> <br>
+                <ul>
+                    <li>o CNG -> 0</li>
+                    <li>o DIESEL -> 1</li>
+                    <li>o ELECTRIC -> 2</li>
+                    <li>o LPG -> 3</li>
+                    <li>o PETROL -> 4</li>
+                </ul><br> Transmission : <input type="text" , name='Transmission' , placeholder="Enter Transmission" class="textbox"> <br>
+                <ul>
+                    <li>o AUTOMATIC -> 0</li>
+                    <li>o MANUAL -> 1</li>
+                </ul><br> Owner Type : <input type="text" , name='Owner_Type' , placeholder="Enter Owner Type" class="textbox"> <br>
+                <ul>
+                    <li>o FIRST -> 0</li>
+                    <li>o FOURTH and ABOVE -> 1</li>
+                    <li>o SECOND -> 2</li>
+                    <li>o THIRD -> 3</li>
+                </ul><br> Seats : <input type="text" , name='Seats' , placeholder="Enter Seats" class="textbox"> <br>
+                <ul>
+                    <li>o 0 Seats -> 0</li>
+                    <li>o 2 Seats -> 1</li>
+                    <li>o 4 Seats -> 2</li>
+                    <li>o 5 Seats -> 3</li>
+                    <li>o 6 Seats -> 4</li>
+                    <li>o 7 Seats -> 5</li>
+                    <li>o 8 Seats -> 6</li>
+                    <li>o 9 Seats -> 7</li>
+                    <li>o 10 Seats -> 8</li>
+                </ul><br> Company : <input type="text" , name='Company' , placeholder="Enter Company" class="textbox"> <br>
+                <ul>
+                    <li>o
+                        <div class="car_points"><img src="static/ambassador.jpg" alt="" class="carsphoto">AMBASSADOR -> 0</div>
+                    </li>
+                    <li>
+                        <div class="car_points"><img src="static/audi.png" alt="" class="carsphoto">AUDI -> 1</div>
+                    </li>
+                    <li>
+                        <div class="car_points"><img src="static/pngegg.png" alt="" class="carsphoto">BENTLEY -> 2</div>
+                    </li>
+                    <li>
+                        <div class="car_points"><img src="static/bmw.png" alt="" class="carsphoto">BMW -> 3</div>
+                    </li>
+                    <li>
+                        <div class="car_points"><img src="static/chevy.png" alt="" class="carsphoto">CHEVROLET -> 4</div>
+                    </li>
+                    <li>
+                        <div class="car_points"><img src="static/datsun.png" alt="" class="carsphoto">DATSUN -> 5</div>
+                    </li>
+                    <li>
+                        <div class="car_points"><img src="static/fiat.png" alt="" class="carsphoto">FIAT -> 6</li>
+                    <li>
+                        <div class="car_points"><img src="static/force.png" alt="" class="carsphoto">FORCE -> 7</li>
+                    <li>
+                        <div class="car_points"><img src="static/ford.png" alt="" class="carsphoto">FORD -> 8</li>
+                    <li>
+                        <div class="car_points"><img src="static/honda.png" alt="" class="carsphoto">HONDA -> 9</li>
+                    <li>
+                        <div class="car_points"><img src="static/hyundai.png" alt="" class="carsphoto">HYUNDAI -> 10</li>
+                    <li>
+                        <div class="car_points"><img src="static/isuzu.png" alt="" class="carsphoto"> ISUZU -> 11</li>
+                    <li>
+                        <div class="car_points"><img src="static/jaguar.png" alt="" class="carsphoto"> JAGUAR -> 12</li>
+                    <li>
+                        <div class="car_points"><img src="static/jeep.png" alt="" class="carsphoto">JEEP -> 13</li>
+                    <li>
+                        <div class="car_points"><img src="static/lamborghini.png" alt="" class="carsphoto"> LAMBORGHINI -> 14</li>
+                    <li>
+                        <div class="car_points"><img src="static/land.png" alt="" class="carsphoto"> LAND -> 15</li>
+                    <li>
+                        <div class="car_points"><img src="static/mahindra.png" alt="" class="carsphoto">MAHINDRA -> 16</li>
+                    <li>
+                        <div class="car_points"><img src="static/maruti.png" alt="" class="carsphoto">MARUTI -> 17</li>
+                    <li>
+                        <div class="car_points"><img src="static/mercedes.png" alt="" class="carsphoto">MERCEDES-BENZ -> 18</li>
+                    <li>
+                        <div class="car_points"><img src="static/mini.png" alt="" class="carsphoto"> MINI -> 19</li>
+                    <li>
+                        <div class="car_points"><img src="static/mitsubishi.png" alt="" class="carsphoto"> MITSUBISHI -> 20</li>
+                    <li>
+                        <div class="car_points"><img src="static/nissan.png" alt="" class="carsphoto"> NISSAN -> 21</li>
+                    <li>
+                        <div class="car_points"><img src="static/porshe.png" alt="" class="carsphoto">PORSCHE -> 22</li>
+                    <li>
+                        <div class="car_points"><img src="static/renault.png" alt="" class="carsphoto">RENAULT -> 23</li>
+                    <li>
+                        <div class="car_points"><img src="static/skoda.png" alt="" class="carsphoto"> SKODA -> 24</li>
+                    <li>
+                        <div class="car_points"><img src="static/smart.png" alt="" class="carsphoto"> SMART -> 25</li>
+                    <li>
+                        <div class="car_points"><img src="static/tata.png" alt="" class="carsphoto"> TATA -> 26</li>
+                    <li>
+                        <div class="car_points"><img src="static/toyota.png" alt="" class="carsphoto"> TOYOTA -> 27</li>
+                    <li>
+                        <div class="car_points"><img src="static/volks.png" alt="" class="carsphoto">VOLKSWAGEN -> 28</li>
+                    <li>
+                        <div class="car_points"><img src="static/volvo.png" alt="" class="carsphoto"> VOLVO -> 29</li>
+                </ul><br> Mileage(km/kg) : <input type="text" , name='Mileage(km/kg)' , placeholder="Enter Mileage in km/kg" class="textbox"> <br><br> Engine(CC) : <input type="text" , name='Engine(CC)' , placeholder="Enter Engine(CC)" class="textbox"> <br><br>                Power(bhp) : <input type="text" , name='Power(bhp)' , placeholder="Enter Power in bhp" class="textbox"> <br><br><br>
+                <input type="submit" , value='predict!' class="button-30">
+
+
+            </form>
+            {{ prediction_text }}
+            </div>
+            <br>
+        </center>
+        </div>
+
+</body>
+
+</html>
